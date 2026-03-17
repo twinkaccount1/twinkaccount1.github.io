@@ -115,7 +115,7 @@ function renderProducts() {
                 ${nameHtml}
                 ${variantButtons}
                 ${descHtml}
-                <div id="pp_${cid}" style="font-size:17px;font-weight:800;margin-bottom:12px;color:${ac}">${fmtPrice(fv.price)}</div>
+                <div id="pp_${cid}" style="font-size:17px;font-weight:800;margin-bottom:12px;color:${ac}">${fmtPrice(fv.price, fv.priceLabel)}</div>
                 <div class="flex gap-2">
                     <button onclick="event.stopPropagation();openSubModal('messenger')" style="flex:1;border-radius:10px;padding:9px 4px;font-size:11px;font-weight:600;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.05);color:rgba(255,255,255,0.6);cursor:pointer">Написать</button>
                     <button onclick="event.stopPropagation();openSubModal('phone')" style="flex:1;border-radius:10px;padding:9px 4px;font-size:11px;font-weight:600;background:${ac};color:#fff;border:none;cursor:pointer">Позвонить</button>
@@ -124,12 +124,10 @@ function renderProducts() {
         </div>`;
     }).join('');
     
-    // Добавляем общее описание категории перед карточками (если есть)
     if (categoryDesc) {
         grid.innerHTML = categoryDesc + grid.innerHTML;
     }
 }
-// Switch product variant
 function switchVar(cat, idx, vi) {
     const item = products[cat][idx], cid = `pc_${cat}_${idx}`, v = item.variants[vi];
     const ac = { coffins: '#6080ff', wreaths: '#5aaa5a', crosses: '#cc4444', monuments: '#c8a840' }[cat] || '#9A8A65';
@@ -146,7 +144,7 @@ function switchVar(cat, idx, vi) {
         }
     }
     const pp = document.getElementById('pp_' + cid);
-    if (pp) pp.textContent = fmtPrice(v.price);
+    if (pp) pp.textContent = fmtPrice(v.price, v.priceLabel);
     item.variants.forEach((_, vj) => {
         const b = document.getElementById(`vb_${cid}_${vj}`);
         if (!b) return;
@@ -192,82 +190,98 @@ function switchProductVariant(vi) {
     renderProductModal();
 }
 
-// Product Modal
 function renderProductModal() {
     const item = products[_mCat][_mIdx], v = item.variants[_mVi];
     const cid = `modal_${_mCat}_${_mIdx}_${_mVi}`;
     window['_ci_' + cid] = v.images;
     carousels[cid] = { current: 0, total: v.images.length };
-    
-    // Кнопки вариантов (если есть)
-    const vbtns = item.variants.length > 1 ? `<div class="flex flex-wrap gap-2 mb-4">${item.variants.map((vv, vi) => 
-        `<button onclick="switchProductVariant(${vi})" style="padding:6px 14px;border-radius:9999px;font-size:11px;font-weight:600;border:1px solid ${vi === _mVi ? 'rgba(0,0,0,0.2)' : 'rgba(0,0,0,0.1)'};color:${vi === _mVi ? '#1A1A18' : '#6B6960'};background:${vi === _mVi ? 'rgba(0,0,0,0.1)' : 'transparent'};cursor:pointer">${vv.label}</button>`
+
+    const accModal = { coffins: '#8899ff', wreaths: '#6abb6a', crosses: '#dd6666', monuments: '#C9A96E' };
+    const acM = accModal[_mCat] || '#C9A96E';
+    const goldLine = `<div style="width:48px;height:2px;background:linear-gradient(90deg,${acM},transparent);margin-bottom:16px;border-radius:1px"></div>`;
+
+    const vbtns = item.variants.length > 1 ? `<div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px">${item.variants.map((vv, vi) =>
+        `<button onclick="switchProductVariant(${vi})" style="padding:6px 14px;border-radius:9999px;font-size:11px;font-weight:600;border:1px solid ${vi === _mVi ? acM : 'rgba(255,255,255,0.15)'};color:${vi === _mVi ? acM : 'rgba(255,255,255,0.45)'};background:${vi === _mVi ? 'rgba(154,138,101,0.15)' : 'transparent'};cursor:pointer;transition:all .2s">${vv.label}</button>`
     ).join('')}</div>` : '';
-    
-    const imgs = v.images.map((s, i) => 
+
+    const imgs = v.images.map((s, i) =>
         `<img src="${s}" alt="" loading="lazy" onclick="event.stopPropagation();openLightbox(window['_ci_${cid}'],${i})" style="cursor:pointer;min-width:100%;max-width:100%;object-fit:cover;flex-shrink:0">`
     ).join('');
-    
+
     const dots = v.images.map((_, i) => `<span class="${i === 0 ? 'active' : ''}" data-i="${i}"></span>`).join('');
-    
-    // Описание только для крестов
+
     let descHtml = '';
-    if (_mCat === 'crosses') {
-        if (item.desc) {
-            descHtml = `<p class="text-[14px] text-[#6B6960] leading-[1.7]">${item.desc}</p>`;
-        }
+    if (_mCat === 'crosses' && item.desc) {
+        descHtml = `<p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:12px">${item.desc}</p>`;
     } else if (_mCat === 'monuments') {
-        // Общее описание для памятников
-        descHtml = `<p class="text-[14px] text-[#6B6960] leading-[1.7]">Натуральный гранит. Собственное производство. Любая форма и размер. Профессиональная установка.</p>`;
+        descHtml = `<p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:12px">Натуральный гранит. Собственное производство. Любая форма и размер. Профессиональная установка.</p>`;
     } else if (_mCat === 'wreaths') {
-        // Общее описание для венков
-        descHtml = `<p class="text-[14px] text-[#6B6960] leading-[1.7]">Качественные материалы. Собственное производство. Различные варианты оформления.</p>`;
+        descHtml = `<p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:12px">Качественные материалы. Собственное производство. Различные варианты оформления.</p>`;
+    } else if (v.desc) {
+        descHtml = `<p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:12px">${v.desc}</p>`;
     }
-    
-    // Заголовок модального окна
-    let modalTitle = '';
-    if (_mCat === 'monuments') {
-        modalTitle = 'Памятник из гранита';
-    } else if (_mCat === 'wreaths') {
-        modalTitle = 'Траурный венок';
-    } else {
-        modalTitle = item.name;
-    }
-    
-    let h = `<div class="space-y-4">
-        <div class="carousel-wrap" data-carousel="${cid}"><div class="carousel-track" data-track="${cid}">${imgs}</div>
-        ${v.images.length > 1 ? 
-            `<button class="carousel-btn left" onclick="event.stopPropagation();slideCarousel('${cid}',-1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
-            <button class="carousel-btn right" onclick="event.stopPropagation();slideCarousel('${cid}',1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
+
+    let modalTitle = _mCat === 'monuments' ? 'Памятник из гранита' : _mCat === 'wreaths' ? 'Траурный венок' : item.name;
+
+    let h = `<div style="background:linear-gradient(160deg,#1a1814,#110f0c);border-radius:20px;padding:20px;margin:-16px;border:1px solid rgba(154,138,101,0.25)">
+
+        <div class="carousel-wrap" data-carousel="${cid}" style="margin-bottom:12px;border-radius:12px;overflow:hidden;border:1px solid rgba(154,138,101,0.15)">
+          <div class="carousel-track" data-track="${cid}">${imgs}</div>
+          ${v.images.length > 1 ?
+            `<button class="carousel-btn left" onclick="event.stopPropagation();slideCarousel('${cid}',-1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+            <button class="carousel-btn right" onclick="event.stopPropagation();slideCarousel('${cid}',1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
             <div class="carousel-dots" data-dots="${cid}">${dots}</div>` : ''}
         </div>
-        <div class="text-center"><button onclick="event.stopPropagation();openLightbox(window['_ci_${cid}'],0)" class="text-[11px] text-[#9B9890] hover:text-[#6B6960] transition">Нажмите на фото для увеличения ↗</button></div>
-        ${item.badge ? `<div class="inline-block rounded-full bg-[#1A1A18]/80 text-white text-[10px] font-semibold px-2.5 py-0.5">${item.badge}</div>` : ''}
+        <div style="text-align:center;margin-bottom:12px"><button onclick="event.stopPropagation();openLightbox(window['_ci_${cid}'],0)" style="font-size:11px;color:rgba(154,138,101,0.6);background:none;border:none;cursor:pointer">Нажмите на фото для увеличения ↗</button></div>
+        ${item.badge ? `<div style="display:inline-block;border-radius:9999px;background:rgba(154,138,101,0.15);border:1px solid rgba(154,138,101,0.3);color:#C9A96E;font-size:10px;font-weight:700;padding:3px 10px;margin-bottom:12px">${item.badge}</div>` : ''}
         ${(_mCat === 'coffins' || _mCat === 'crosses') ? vbtns : ''}
         ${descHtml}
-        <div class="text-lg font-semibold accent">${fmtPrice(v.price)}</div>
-        <div class="text-[12px] text-[#9B9890]">Цена зависит от размеров и материалов</div>
-        <button onclick="event.stopPropagation();openSubModal('messenger')" class="w-full rounded-xl border border-black/8 py-2.5 text-[13px] font-semibold text-[#1A1A18] hover:bg-[#1A1A18] hover:text-white hover:border-transparent transition">Написать</button>
-        <button onclick="event.stopPropagation();openSubModal('phone')" class="block w-full rounded-xl bg-[#1A1A18] text-white py-2.5 text-center text-[13px] font-semibold hover:bg-[#333] transition">Позвонить</button>
+        <div style="padding:12px;background:rgba(154,138,101,0.08);border-radius:12px;border:1px solid rgba(154,138,101,0.18);margin-bottom:16px">
+          <div style="font-size:22px;font-weight:800;color:${acM}">${fmtPrice(v.price, v.priceLabel)}</div>
+          <div style="font-size:12px;color:rgba(255,255,255,0.3);margin-top:2px">Цена зависит от размеров и материалов</div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <button onclick="event.stopPropagation();openModal('phone')" style="width:100%;border-radius:12px;padding:13px;font-size:13px;font-weight:700;background:linear-gradient(135deg,#9A8A65,#C9A96E);color:#0a0a08;border:none;cursor:pointer">Позвонить</button>
+          <button onclick="event.stopPropagation();openModal('messenger')" style="width:100%;border-radius:12px;padding:12px;font-size:13px;font-weight:600;background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(154,138,101,0.25);cursor:pointer">Написать</button>
+        </div>
     </div>`;
-    
+
     document.getElementById('modalTitle').textContent = modalTitle;
     document.getElementById('modalBody').innerHTML = h;
     openModalEl();
 }
 
-// Service Modal
 function openServiceModal(id) {
     const s = svcData[id];
-    const svcPhotos = [svcExImg[id] || '', 'https://images.unsplash.com/photo-1477281765962-ef34e8bb0967?auto=format&fit=crop&w=800&q=80'].filter(Boolean);
-    let h = `<div class="space-y-4">
-        <div class="w-10 h-10 rounded-xl bg-black/4 flex items-center justify-center text-[#6B6960]">${icon(s.icon, 22)}</div>
-        <p class="text-[14px] text-[#6B6960] leading-[1.7]">${s.short}</p>
-        <div class="rounded-xl bg-black/3 p-4"><div class="text-[11px] font-semibold text-[#9B9890] uppercase tracking-wider mb-2">Что включено</div><ul class="space-y-1.5">${s.features.map(f => `<li class="flex items-center gap-2 text-[13px] text-[#6B6960]">${CHECK_SM()}${f}</li>`).join('')}</ul></div>
-        ${!s.noMedia ? `<div><div class="text-[11px] font-semibold text-[#9B9890] uppercase tracking-wider mb-2">Фото работ</div><div class="grid grid-cols-2 gap-2">${svcPhotos.map((ph, pi) => `<div class="media-thumb" onclick="event.stopPropagation();openLightbox(${JSON.stringify(svcPhotos)},${pi})"><img src="${ph}" alt="" class="w-full h-28 object-cover rounded-lg"></div>`).join('')}</div></div>` : ''}
-        <div class="text-center"><div class="text-lg font-semibold accent">${s.price}</div>${s.priceNote ? `<div class="text-[12px] text-[#9B9890] mt-0.5">${s.priceNote}</div>` : ''}</div>
-        <button onclick="event.stopPropagation();openSubModal('phone')" class="block w-full rounded-xl bg-[#1A1A18] text-white py-2.5 text-center text-[13px] font-semibold hover:bg-[#333] transition">Позвонить</button>
-        <button onclick="event.stopPropagation();openSubModal('messenger')" class="w-full rounded-xl border border-black/8 py-2.5 text-[13px] font-semibold text-[#1A1A18] hover:bg-[#1A1A18] hover:text-white hover:border-transparent transition">Написать</button>
+    const svcPhoto = svcExImg[id] || null;
+    const goldLine = `<div style="width:48px;height:2px;background:linear-gradient(90deg,#C9A96E,transparent);margin-bottom:4px;border-radius:1px"></div>`;
+    let h = `<div style="background:linear-gradient(160deg,#1a1814,#110f0c);border-radius:20px;padding:24px;margin:-16px;border:1px solid rgba(154,138,101,0.25)">
+
+        <div class="flex items-center gap-3 mb-4">
+          <div style="width:44px;height:44px;border-radius:14px;background:rgba(154,138,101,0.12);border:1px solid rgba(154,138,101,0.25);display:flex;align-items:center;justify-content:center;color:#C9A96E;flex-shrink:0">${icon(s.icon, 22)}</div>
+          <div>
+            <div style="font-size:16px;font-weight:700;color:rgba(255,255,255,0.9)">${s.title}</div>
+          </div>
+        </div>
+        <p style="font-size:14px;color:rgba(255,255,255,0.5);line-height:1.7;margin-bottom:16px">${s.short}</p>
+        <div style="background:rgba(154,138,101,0.07);border:1px solid rgba(154,138,101,0.18);border-radius:14px;padding:16px;margin-bottom:16px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#9A8A65;margin-bottom:10px">Что включено</div>
+          <ul style="list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px">${s.features.map(f => `<li style="display:flex;align-items:flex-start;gap:8px;font-size:13px;color:rgba(255,255,255,0.55);line-height:1.5">${CHECK_SM('#C9A96E')}${f}</li>`).join('')}</ul>
+        </div>
+        ${!s.noMedia && svcPhoto ? `<div style="margin-bottom:16px">
+          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.15em;color:#9A8A65;margin-bottom:10px">Фото работ</div>
+          <div onclick="event.stopPropagation();openLightbox(['${svcPhoto}'],0)" style="cursor:pointer;border-radius:12px;overflow:hidden;border:1px solid rgba(154,138,101,0.2)">
+            <img src="${svcPhoto}" alt="" style="width:100%;height:auto;display:block;max-height:400px;object-fit:contain;background:#0a0a08">
+          </div>
+        </div>` : ''}
+        <div style="text-align:center;margin-bottom:16px;padding:12px;background:rgba(154,138,101,0.08);border-radius:12px;border:1px solid rgba(154,138,101,0.18)">
+          <div style="font-size:20px;font-weight:800;color:#C9A96E">${s.price}</div>
+          ${s.priceNote ? `<div style="font-size:12px;color:rgba(255,255,255,0.35);margin-top:4px">${s.priceNote}</div>` : ''}
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <button onclick="event.stopPropagation();openModal('phone')" style="width:100%;border-radius:12px;padding:13px;font-size:13px;font-weight:700;background:linear-gradient(135deg,#9A8A65,#C9A96E);color:#0a0a08;border:none;cursor:pointer;letter-spacing:.02em">Позвонить</button>
+          <button onclick="event.stopPropagation();openModal('messenger')" style="width:100%;border-radius:12px;padding:12px;font-size:13px;font-weight:600;background:transparent;color:rgba(255,255,255,0.6);border:1px solid rgba(154,138,101,0.25);cursor:pointer">Написать</button>
+        </div>
     </div>`;
     document.getElementById('modalTitle').textContent = s.title;
     document.getElementById('modalBody').innerHTML = h;

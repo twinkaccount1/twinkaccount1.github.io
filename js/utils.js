@@ -12,10 +12,12 @@ const VB_SVG = `<svg width="18" height="18" viewBox="0 0 24 24" fill="white"><pa
 
 // Category styles
 const catSt = { coffins: 'cat-coffins', wreaths: 'cat-wreaths', crosses: 'cat-crosses', monuments: 'cat-monuments' };
-const fvIds = ['art-video', 'relief-video', 'modeling-photos'];
+const fvIds = ['feat-3d-videos', 'art-video', 'relief-video'];
 
 // Format price
-function fmtPrice(p) {
+function fmtPrice(p, priceLabel) {
+    if (priceLabel) return priceLabel;
+    if (!p) return 'По запросу';
     return 'от ' + Math.round(p * rates[currentCurrency]).toLocaleString('ru-RU') + ' ' + syms[currentCurrency];
 }
 
@@ -105,7 +107,7 @@ function openSubModal(type) {
         content.innerHTML = `<div class="text-[15px] font-semibold text-[#1A1A18] mb-4 pr-8">Написать</div><div class="space-y-2">
         ${mesLink('https://wa.me/37377954044', WA_SVG, '#25D366', 'WhatsApp')}
         ${mesLink('https://t.me/Guchev_Ritual', TG_SVG, '#229ED9', 'Telegram')}
-        ${mesLink('viber://chat?number=%2B37377954044', VB_SVG, '#7360F2', 'Viber')}</div>`;
+        <div class="flex items-center gap-3 rounded-xl border border-black/6 px-4 py-3 text-[13px] font-medium text-[#1A1A18]"><div class="w-8 h-8 rounded-lg flex items-center justify-center text-white" style="background:#7360F2;font-size:16px">${VB_SVG}</div><span>Viber</span><span class="ml-auto text-[#6B6960] font-semibold text-[12px]">+373 778 61 889</span></div></div>`;
     }
     const m = document.getElementById('globalSubModal');
     m.style.display = 'flex';
@@ -121,27 +123,38 @@ function closeSubModal() {
 // Main modal open
 function openModal(type) {
     const title = document.getElementById('modalTitle'), body = document.getElementById('modalBody');
+    const goldLine = `<div style="width:48px;height:2px;background:linear-gradient(90deg,#C9A96E,transparent);margin-bottom:16px;border-radius:1px"></div>`;
+    const rowStyle = `style="display:flex;align-items:center;justify-content:space-between;border-radius:12px;padding:13px 16px;font-size:13px;font-weight:500;border:1px solid rgba(154,138,101,0.18);background:rgba(154,138,101,0.06);color:rgba(255,255,255,0.85);text-decoration:none;transition:background .2s"`;
     if (type === 'phone') {
-        title.textContent = 'Свяжитесь с нами';
-        body.innerHTML = `<div class="space-y-4"><div class="rounded-xl bg-black/3 p-5">
-            <div class="text-[11px] uppercase tracking-wider text-[#9B9890] font-semibold mb-2">Приднестровье</div>
-            <a href="tel:+37377954044" class="block text-xl font-semibold text-[#1A1A18] hover:text-[#6B6960] transition">+373 779 54 044</a>
-            <a href="tel:+37377861889" class="block text-xl font-semibold text-[#1A1A18] hover:text-[#6B6960] transition mt-2">+373 778 61 889</a>
-            <div class="text-[11px] uppercase tracking-wider text-[#9B9890] font-semibold mb-2 mt-4">Молдова</div>
-            <a href="tel:+373068559200" class="block text-xl font-semibold text-[#1A1A18] hover:text-[#6B6960] transition">+373 068 559 200</a>
-            <div class="text-[12px] text-[#9B9890] mt-3 leading-[1.6]">Без выходных · Ответим в любое время</div></div>
-            <div class="space-y-1.5"><div class="text-[11px] uppercase tracking-wider text-[#9B9890] font-semibold mb-1">Или напишите в мессенджер</div>
-            <a href="https://wa.me/37377954044" target="_blank" class="flex items-center justify-between rounded-xl border border-black/6 px-4 py-3 text-[13px] font-medium text-[#1A1A18] hover:bg-black/3 transition"><span>WhatsApp</span><span class="text-[#9B9890]">→</span></a>
-            <a href="https://t.me/Guchev_Ritual" target="_blank" class="flex items-center justify-between rounded-xl border border-black/6 px-4 py-3 text-[13px] font-medium text-[#1A1A18] hover:bg-black/3 transition"><span>Telegram</span><span class="text-[#9B9890]">→</span></a>
-            <a href="viber://chat?number=%2B37377954044" class="flex items-center justify-between rounded-xl border border-black/6 px-4 py-3 text-[13px] font-medium text-[#1A1A18] hover:bg-black/3 transition"><span>Viber</span><span class="text-[#9B9890]">→</span></a></div></div>`;
+        body.innerHTML = `<div style="background:linear-gradient(160deg,#1a1814,#110f0c);border-radius:20px;padding:24px;margin:-16px;border:1px solid rgba(154,138,101,0.25)">
+            ${goldLine}
+            <div style="margin-bottom:20px">
+              <div style="font-size:10px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:10px">Приднестровье</div>
+              <a href="tel:+37377954044" style="display:block;font-size:22px;font-weight:700;color:rgba(255,255,255,0.9);text-decoration:none;margin-bottom:4px">+373 779 54 044</a>
+              <a href="tel:+37377861889" style="display:block;font-size:22px;font-weight:700;color:rgba(255,255,255,0.9);text-decoration:none">+373 778 61 889</a>
+              <div style="font-size:10px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-top:16px;margin-bottom:10px">Молдова</div>
+              <a href="tel:+373068559200" style="display:block;font-size:22px;font-weight:700;color:rgba(255,255,255,0.9);text-decoration:none">+373 068 559 200</a>
+              <div style="font-size:12px;color:rgba(255,255,255,0.25);margin-top:10px">Без выходных · Ответим в любое время</div>
+            </div>
+            <div style="width:40px;height:1px;background:linear-gradient(90deg,rgba(154,138,101,0.4),transparent);margin-bottom:16px"></div>
+            <div style="font-size:10px;font-weight:700;letter-spacing:.14em;color:rgba(255,255,255,0.3);text-transform:uppercase;margin-bottom:10px">Или напишите в мессенджер</div>
+            <div style="display:flex;flex-direction:column;gap:8px">
+              <a href="https://wa.me/37377954044" target="_blank" ${rowStyle}><span>WhatsApp</span><span style="color:rgba(154,138,101,0.6)">→</span></a>
+              <a href="https://t.me/Guchev_Ritual" target="_blank" ${rowStyle}><span>Telegram</span><span style="color:rgba(154,138,101,0.6)">→</span></a>
+              <div style="display:flex;align-items:center;justify-content:space-between;border-radius:12px;padding:13px 16px;font-size:13px;font-weight:500;border:1px solid rgba(154,138,101,0.18);background:rgba(154,138,101,0.06);color:rgba(255,255,255,0.85)"><span>Viber</span><span style="color:#C9A96E;font-weight:600;font-size:12px">+373 778 61 889</span></div>
+            </div>
+        </div>`;
     } else {
-        title.textContent = 'Написать нам';
-        const mk = (href, ico, bg, n) => `<a href="${href}" target="_blank" class="flex items-center gap-3 rounded-xl border border-black/6 px-4 py-3 text-[13px] font-medium text-[#1A1A18] hover:bg-black/3 transition"><div class="w-8 h-8 rounded-lg flex items-center justify-center text-white" style="background:${bg};font-size:16px">${ico}</div><span>${n}</span><span class="ml-auto text-[#9B9890]">→</span></a>`;
-        body.innerHTML = `<div class="space-y-2">
-            ${mk('https://wa.me/37377954044', WA_SVG, '#25D366', 'WhatsApp')}
-            ${mk('https://t.me/Guchev_Ritual', TG_SVG, '#229ED9', 'Telegram')}
-            ${mk('viber://chat?number=%2B37377954044', VB_SVG, '#7360F2', 'Viber')}
-            <button onclick="closeModal();setTimeout(()=>openModal('phone'),150)" class="flex w-full items-center gap-3 rounded-xl bg-[#1A1A18] text-white px-4 py-3 text-[13px] font-medium hover:bg-[#333] transition">${PHONE_SVG}<span>Позвонить</span><span class="ml-auto text-white/40">→</span></button></div>`;
+        const mk = (href, ico, bg, n) => `<a href="${href}" target="_blank" style="display:flex;align-items:center;gap:12px;border-radius:12px;padding:13px 16px;font-size:13px;font-weight:500;border:1px solid rgba(154,138,101,0.18);background:rgba(154,138,101,0.06);color:rgba(255,255,255,0.85);text-decoration:none"><div style="width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:${bg};flex-shrink:0">${ico}</div><span>${n}</span><span style="margin-left:auto;color:rgba(154,138,101,0.6)">→</span></a>`;
+        body.innerHTML = `<div style="background:linear-gradient(160deg,#1a1814,#110f0c);border-radius:20px;padding:24px;margin:-16px;border:1px solid rgba(154,138,101,0.25)">
+            ${goldLine}
+            <div style="display:flex;flex-direction:column;gap:8px">
+              ${mk('https://wa.me/37377954044', WA_SVG, '#25D366', 'WhatsApp')}
+              ${mk('https://t.me/Guchev_Ritual', TG_SVG, '#229ED9', 'Telegram')}
+              <div style="display:flex;align-items:center;gap:12px;border-radius:12px;padding:13px 16px;font-size:13px;font-weight:500;border:1px solid rgba(154,138,101,0.18);background:rgba(154,138,101,0.06);color:rgba(255,255,255,0.85)"><div style="width:32px;height:32px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:#7360F2;flex-shrink:0">${VB_SVG}</div><span>Viber</span><span style="margin-left:auto;color:#C9A96E;font-weight:600;font-size:12px">+373 778 61 889</span></div>
+              <button onclick="closeModal();setTimeout(()=>openModal('phone'),150)" style="display:flex;align-items:center;gap:12px;width:100%;border-radius:12px;padding:13px 16px;font-size:13px;font-weight:600;background:linear-gradient(135deg,#9A8A65,#C9A96E);color:#0a0a08;border:none;cursor:pointer;margin-top:4px">${PHONE_SVG}<span>Позвонить</span><span style="margin-left:auto">→</span></button>
+            </div>
+        </div>`;
     }
     openModalEl();
 }
@@ -173,6 +186,20 @@ function toggleFeatureVideo(id) {
     const b = document.getElementById(id), c = document.getElementById(id + '-chev');
     const o = b.classList.toggle('open');
     if (c) c.style.transform = o ? 'rotate(180deg)' : '';
+}
+
+function toggleAllFeatureVideos() {
+    const videoIds = ['feat-3d-videos', 'art-video', 'relief-video'];
+    const chevIds = ['feat-3d-chev', 'feat-art-chev', 'feat-relief-chev'];
+    // Check if already open
+    const firstBody = document.getElementById(videoIds[0]);
+    const isOpen = firstBody && firstBody.classList.contains('open');
+    videoIds.forEach((id, i) => {
+        const b = document.getElementById(id);
+        const c = document.getElementById(chevIds[i]);
+        if (b) { b.classList.toggle('open', !isOpen); }
+        if (c) c.style.transform = !isOpen ? 'rotate(180deg)' : '';
+    });
 }
 
 function togglePhonePopup() {
