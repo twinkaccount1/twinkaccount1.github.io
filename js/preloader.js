@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Логотипы и иконки
         'assets/logo.png',
         'assets/icon.png',
-        'assets/favicon.ico',
+        'assets/favicon/favicon.ico',
         
         // Hero изображения
         'assets/glavn0.png',
