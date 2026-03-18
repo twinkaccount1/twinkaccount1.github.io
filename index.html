@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://guchevritual.ru/">
 <meta property="og:site_name" content="Гучев Ритуал">
-<meta property="og:image" content="https://guchevritual.ru/assets/favicon/android-chrome-512x512.png">
+<meta property="og:image" content="https://guchevritual.ru/assets/icon.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="ru_RU">
@@ -20,7 +20,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Гучев — Ритуальные услуги 24/7 | Рыбница">
 <meta name="twitter:description" content="Крупнейшая ритуальная компания Приднестровья и Молдовы. Памятники из гранита, похоронные услуги 24/7.">
-<meta name="twitter:image" content="https://guchevritual.ru/assets/favicon/android-chrome-512x512.png">
+<meta name="twitter:image" content="https://guchevritual.ru/assets/favicon/icon.jpg">
 
 <meta name="geo.region" content="MD-SN">
 <meta name="geo.placename" content="Рыбница, Приднестровье">
@@ -59,30 +59,45 @@
 }
 </script>
 
-<link rel="icon" type="image/png" href="assets/icon.png">
-<link rel="shortcut icon" href="assets/favicon/favicon.ico">
+<link rel="icon" type="image/png" href="assets/icon.jpg">
+<link rel="shortcut icon" href="assets/icon.jpg">
 <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body style="margin:0;padding:0;overflow-x:hidden">
+    <!-- PRELOADER -->
     <div id="preloader" style="position:fixed; inset:0; z-index:9999; background:linear-gradient(135deg,#0a0a08,#1a1a18); display:flex; align-items:center; justify-content:center; flex-direction:column; transition:opacity 0.5s ease, visibility 0.5s ease">
         <div style="text-align:center; max-width:400px; padding:20px">
+          
+            <!-- Анимированный гранитный блок -->
             <div style="position:relative; width:80px; height:80px; margin:0 auto 30px">
                 <div style="position:absolute; width:100%; height:100%; background:linear-gradient(145deg, #2a2a28, #1a1a18); border-radius:12px; transform:rotate(45deg); animation: preloaderRotate 2s infinite ease-in-out; border:2px solid rgba(154,138,101,0.3); box-shadow:0 0 30px rgba(154,138,101,0.3)"></div>
                 <div style="position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#C9A96E; font-size:24px; font-weight:300">✝</div>
             </div>
+            
+            <!-- Текст загрузки -->
             <div style="color:rgba(255,255,255,0.7); font-size:14px; letter-spacing:0.5px; margin-bottom:20px; font-weight:300">ЗАГРУЗКА МАТЕРИАЛОВ</div>
+            
+            <!-- Прогресс-бар -->
             <div style="width:200px; height:2px; background:rgba(255,255,255,0.1); margin:0 auto; border-radius:2px; overflow:hidden">
                 <div id="preloaderProgress" style="width:0%; height:100%; background:linear-gradient(90deg, #9A8A65, #C9A96E); transition:width 0.3s ease"></div>
             </div>
+            
+            <!-- Счетчик -->
             <div id="preloaderCounter" style="color:rgba(255,255,255,0.4); font-size:12px; margin-top:15px">0%</div>
+            
+            <!-- Надпись -->
             <div style="color:rgba(255,255,255,0.2); font-size:10px; margin-top:40px; text-transform:uppercase; letter-spacing:2px">РИТУАЛЬНЫЕ УСЛУГИ 24/7</div>
         </div>
     </div>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ (изначально скрыт) -->
     <div id="mainContent" style="opacity:0; transition:opacity 0.8s ease; min-height:100vh">
         <div class="min-h-screen w-full bg-[#F6F5F1]" style="overflow-x:hidden">
+
+        <!-- HEADER -->
         <header id="mainHeader">
           <div class="relative flex items-center justify-between px-4 py-3 lg:px-10 lg:py-5">
             <a href="#"><img src="assets/logo.png" alt="Логотип" class="h-13 w-auto transition-all duration-400" id="logoImage"></a>
@@ -130,12 +145,12 @@
                       <span>Telegram</span><span class="ml-auto text-[#9B9890]">→</span>
                     </a>
 
-                    <a href="viber://chat?number=%2B37377954044" class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] font-medium text-[#1A1A18] hover:bg-black/4 transition">
+                    <div class="flex items-center gap-3 rounded-lg px-3 py-2 text-[13px] font-medium text-[#1A1A18] bg-black/2">
                       <div class="w-7 h-7 rounded-lg flex items-center justify-center" style="background:#7360F2">
                         <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M11.4 0C5.5 0 .8 4.7.8 10.5c0 3.2 1.5 6.1 3.9 8.1v3.8l3.6-1.9c1 .3 2 .4 3.1.4 5.9 0 10.6-4.7 10.6-10.5S17.3 0 11.4 0zm1.1 14.1l-2.7-2.9-5.2 2.9 5.8-6.1 2.7 2.9 5.2-2.9-5.8 6.1z"/></svg>
                       </div>
-                      <span>Viber</span><span class="ml-auto text-[#9B9890]">→</span>
-                    </a>
+                      <span>Viber</span><span class="ml-auto text-[#6B6960] font-semibold">+373 778 61 889</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -144,10 +159,13 @@
         </header>
 
         <main>
+        <!-- HERO -->
         <section class="relative overflow-hidden flex items-stretch" id="hero" style="min-height:100svh">
           <img src="assets/glavn0.png" alt="" class="hidden md:block absolute inset-0 w-full h-full object-cover">
           <img src="assets/glavn2.png" alt="" class="block md:hidden absolute inset-0 w-full h-full object-cover">
           <div class="hero-gradient absolute inset-0"></div>
+
+          <!-- Desktop -->
           <div class="hidden lg:flex relative z-10 w-full px-16 items-center pt-20">
             <div class="grid lg:grid-cols-2 gap-20 items-center w-full">
               <div class="flex flex-col gap-14">
@@ -168,10 +186,14 @@
               <div class="flex flex-col gap-3 items-end justify-center" id="hero-stats-desktop"></div>
             </div>
           </div>
+
+          <!-- Mobile -->
           <div class="flex lg:hidden relative z-10 w-full">
             <div class="hero-mob-inner w-full" id="hero-mobile-content"></div>
           </div>
         </section>
+
+        <!-- SERVICES -->
         <section id="services" class="px-6 py-16 lg:px-12 lg:py-20 bg-white">
           <div class="max-w-3xl mb-10">
             <h2 class="text-[clamp(28px,4vw,44px)] font-semibold leading-tight text-[#1A1A18]">Услуги</h2>
@@ -180,9 +202,12 @@
           <div id="servicesGrid" class="hidden lg:block"></div>
           <div id="servicesGridMobile" class="lg:hidden space-y-2"></div>
         </section>
+
         <div class="hidden lg:flex items-center justify-center py-2 bg-white">
           <div style="height:1px;width:240px;background:linear-gradient(90deg,transparent,rgba(154,138,101,0.6),transparent)"></div>
         </div>
+
+        <!-- MONUMENTS -->
         <section id="monuments" class="px-6 py-16 lg:px-12 lg:py-20 bg-white">
           <div class="mb-10">
             <h2 class="text-[clamp(28px,4vw,44px)] font-semibold leading-tight text-[#1A1A18]">Памятники из гранита</h2>
@@ -190,13 +215,16 @@
               <div class="absolute top-0 right-0 w-64 h-64 rounded-full pointer-events-none opacity-10" style="background:radial-gradient(circle,#9A8A65,transparent);transform:translate(30%,-30%)"></div>
               <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full h-32 pointer-events-none" style="background:radial-gradient(ellipse at 50% 0%,rgba(154,138,101,0.10) 0%,transparent 70%)"></div>
               <div class="relative z-10 grid lg:grid-cols-2 gap-8 items-center">
+                <!-- Left: text -->
                 <div>
                   <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 mb-4 text-[11px] font-semibold uppercase tracking-wider" style="background:rgba(154,138,101,0.18);color:#C9A96E;border:1px solid rgba(154,138,101,0.3)">Собственное производство · 20+ лет опыта</div>
                   <p class="text-[16px] lg:text-[18px] text-white/85 leading-[1.75] font-light"><span class="font-semibold text-white">Памятник</span> — от слова <span class="italic text-white/70">память</span>. Это не временное решение и не просто формальность. Это знак уважения, который остаётся навсегда. Именно поэтому при выборе памятника главное — не цена, а <span class="font-semibold text-white">качество</span>: камень, обработка, гравировка, установка.</p>
                   <p class="text-[14px] text-white/50 leading-[1.7] mt-4">Мы работаем исключительно с <strong class="text-[#C9A96E] font-semibold">качественными материалами</strong> — натуральный гранит украинских месторождений, проверенный временем. Собственное производство, коллектив только из профессионалов, долгосрочная гарантия по договору.</p>
                   <div class="flex flex-wrap gap-6 mt-6" id="mon-checks-1"></div>
                 </div>
+                <!-- Right: stats + qualities -->
                 <div class="flex flex-col gap-3">
+                  <!-- Big stat -->
                   <div class="grid grid-cols-2 gap-3">
                     <div class="rounded-2xl p-4 flex flex-col justify-between" style="background:rgba(154,138,101,0.1);border:1px solid rgba(154,138,101,0.2)">
                       <div class="text-[10px] font-semibold uppercase tracking-widest text-white/30 mb-2">Опыт</div>
@@ -209,6 +237,7 @@
                       <div class="text-[11px] text-white/40 mt-1">по договору</div>
                     </div>
                   </div>
+                  <!-- Quality list -->
                   <div class="rounded-2xl p-4" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)">
                     <div class="text-[10px] font-semibold uppercase tracking-widest text-white/25 mb-3">Из чего складывается качество</div>
                     <div class="space-y-2.5">
@@ -234,12 +263,15 @@
               </div>
             </div>
           </div>
+
+          <!-- Install section -->
           <div class="rounded-2xl p-6 lg:p-8 mb-6 relative overflow-hidden" style="background:linear-gradient(160deg,#0f0f0e 0%,#1c1c1a 50%,#131210 100%);border:1px solid rgba(154,138,101,0.22);box-shadow:inset 0 0 100px rgba(154,138,101,0.045),0 8px 40px rgba(0,0,0,0.45)">
             <div class="absolute top-0 right-0 w-72 h-72 rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(154,138,101,0.15),transparent);transform:translate(30%,-30%)"></div>
             <div class="absolute bottom-0 left-0 w-48 h-48 rounded-full pointer-events-none" style="background:radial-gradient(circle,rgba(154,138,101,0.08),transparent);transform:translate(-30%,30%)"></div>
             <div class="absolute top-0 left-0 w-full h-24 pointer-events-none" style="background:radial-gradient(ellipse at 30% 0%,rgba(154,138,101,0.09) 0%,transparent 70%)"></div>
             <div class="grid lg:grid-cols-2 gap-8 relative z-10">
               <div class="flex flex-col">
+                <!-- Header -->
                 <div class="flex items-center gap-3 mb-4">
                   <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:rgba(154,138,101,0.2);border:1px solid rgba(154,138,101,0.3)">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#9A8A65" stroke-width="1.5" stroke-linecap="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></svg>
@@ -255,6 +287,8 @@
                 <p class="text-[14px] text-white/55 leading-[1.8] mb-4">Памятник изготавливается из <span style="color:#C9A96E;font-weight:600">натурального гранита</span> на собственном производстве. Камень распиливается алмазными дисками, шлифуется в несколько проходов — до зеркального блеска или бархатной матовости, в зависимости от выбранной отделки. Каждая грань выверяется вручную.</p>
 
                 <p class="text-[14px] text-white/55 leading-[1.8] mb-5">Гравировка выполняется <span style="color:#C9A96E;font-weight:600">ударно-гравировальными станками ЧПУ + художником ручным алмазным инструментом</span> — портреты, надписи, пейзажи и пр., любой сложности.</p>
+
+                <!-- Process steps -->
                 <div class="rounded-xl p-4 mb-5" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)">
                   <div class="text-[11px] font-semibold uppercase tracking-wider text-white/30 mb-3">Этапы работы</div>
                   <div class="flex items-center gap-1.5 flex-wrap">
@@ -284,6 +318,8 @@
                     </div>
                   </div>
                 </div>
+
+                <!-- Checks -->
                 <div class="grid grid-cols-2 gap-x-4 gap-y-2 mb-5" id="mon-checks-2"></div>
 
                 <div class="flex flex-wrap gap-3">
@@ -294,9 +330,9 @@
               <div>
                 <div class="carousel-wrap" data-carousel="monument-install">
                   <div class="carousel-track" data-track="monument-install">
-                    <img src="assets/pamt1.jpg" alt="Памятник 1" class="w-full h-[374px] lg:h-[499px] object-cover cursor-pointer" onclick="openLightbox(window._cimg_monument_install,0)">
-                    <img src="assets/pamt2.jpg" alt="Памятник 2" class="w-full h-[374px] lg:h-[499px] object-cover cursor-pointer" onclick="openLightbox(window._cimg_monument_install,1)">
-                    <img src="assets/pamt3.jpg" alt="Памятник 3" class="w-full h-[374px] lg:h-[499px] object-cover cursor-pointer" onclick="openLightbox(window._cimg_monument_install,2)">
+                    <img src="assets/pam1.jpg" alt="Памятник 1" class="w-full h-[374px] lg:h-[499px] object-cover cursor-pointer" onclick="openLightbox(window._cimg_monument_install,0)">
+                    <img src="assets/pam2.jpg" alt="Памятник 2" class="w-full h-[374px] lg:h-[499px] object-cover cursor-pointer" onclick="openLightbox(window._cimg_monument_install,1)">
+                    <img src="assets/pam3.jpg" alt="Памятник 3" class="w-full h-[374px] lg:h-[499px] object-cover cursor-pointer" onclick="openLightbox(window._cimg_monument_install,2)">
                   </div>
                   <button class="carousel-btn left" onclick="slideCarousel('monument-install',-1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"><path d="M15 18l-6-6 6-6"/></svg></button>
                   <button class="carousel-btn right" onclick="slideCarousel('monument-install',1)"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg></button>
@@ -306,6 +342,8 @@
               </div>
             </div>
           </div>
+
+          <!-- Granite types -->
           <div class="mb-10">
             <button onclick="toggleSection('graniteTypes','graniteChevron')" class="w-full flex items-center justify-between rounded-xl px-5 py-4 text-left transition" style="background:rgba(26,26,24,0.06);border:1px solid rgba(0,0,0,0.08)">
               <div><span class="text-[14px] font-semibold text-[#1A1A18]">Виды гранита</span><span class="text-[12px] text-[#9B9890] ml-2">— только качественные материалы</span></div>
@@ -313,64 +351,84 @@
             </button>
             <div class="toggle-body" id="graniteTypes">
               <div class="pt-4 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3">
-                <div class="card p-4"><div class="w-full h-12 rounded-lg mb-3" style="background:linear-gradient(135deg,#1a1a1a,#2a2a2a)"></div><div class="text-[13px] font-semibold text-[#1A1A18]">Габбро</div><div class="text-[11px] text-[#9B9890] mt-0.5">Букинское м/р</div><div class="text-[11px] text-[#9B9890] leading-[1.5] mt-1">Глубокий чёрный, идеален для гравировки</div></div>
-                <div class="card p-4"><div class="w-full h-12 rounded-lg mb-3" style="background:linear-gradient(135deg,#252525,#3a3a3a)"></div><div class="text-[13px] font-semibold text-[#1A1A18]">Габбро</div><div class="text-[11px] text-[#9B9890] mt-0.5">Быстривское м/р</div><div class="text-[11px] text-[#9B9890] leading-[1.5] mt-1">Тёмный с мелкой структурой, высокая прочность</div></div>
-                <div class="card p-4"><div class="w-full h-12 rounded-lg mb-3" style="background:linear-gradient(135deg,#8a8a8a,#a5a5a5)"></div><div class="text-[13px] font-semibold text-[#1A1A18]">Покостовский</div><div class="text-[11px] text-[#9B9890] mt-0.5">Серый гранит</div><div class="text-[11px] text-[#9B9890] leading-[1.5] mt-1">Благородный серый, устойчив к влаге</div></div>
-                <div class="card p-4"><div class="w-full h-12 rounded-lg mb-3" style="background:linear-gradient(135deg,#7a3b2e,#965040)"></div><div class="text-[13px] font-semibold text-[#1A1A18]">Лезниковский</div><div class="text-[11px] text-[#9B9890] mt-0.5">Красный гранит</div><div class="text-[11px] text-[#9B9890] leading-[1.5] mt-1">Тёплый красный оттенок, очень прочный</div></div>
-                <div class="card p-4"><div class="w-full h-12 rounded-lg mb-3" style="background:linear-gradient(135deg,#5a4330,#7a6040)"></div><div class="text-[13px] font-semibold text-[#1A1A18]">Токовский</div><div class="text-[11px] text-[#9B9890] mt-0.5">Коричневый гранит</div><div class="text-[11px] text-[#9B9890] leading-[1.5] mt-1">Уникальный тёплый тон, долговечный</div></div>
+                <div class="card p-4"><img src="assets/granit1.jpg" alt="Габбро Букинское" class="w-full h-12 rounded-lg mb-3 object-cover"><div class="text-[13px] font-semibold text-[#1A1A18]">Габбро</div><div class="text-[11px] text-[#9B9890] mt-0.5">Букинское м/р</div><div class="text-[11px] text-[#9B9890] leading-[1.5] mt-1">Глубокий чёрный, идеален для гравировки</div></div>
+                <div class="card p-4"><img src="assets/granit2.jpg" alt="Габбро Быстривское" class="w-full h-12 rounded-lg mb-3 object-cover"><div class="text-[13px] font-semibold text-[#1A1A18]">Габбро</div><div class="text-[11px] text-[#9B9890] mt-0.5">Быстривское м/р</div><div class="text-[11px] text-[#9B9890] leading-[1.5] mt-1">Тёмный с мелкой структурой, высокая прочность</div></div>
+                <div class="card p-4"><img src="assets/granit3.jpg" alt="Покостовский" class="w-full h-12 rounded-lg mb-3 object-cover"><div class="text-[13px] font-semibold text-[#1A1A18]">Покостовский</div><div class="text-[11px] text-[#9B9890] mt-0.5">Серый гранит</div><div class="text-[11px] text-[#9B9890] leading-[1.5] mt-1">Благородный серый, устойчив к влаге</div></div>
+                <div class="card p-4"><img src="assets/granit4.jpg" alt="Лезниковский" class="w-full h-12 rounded-lg mb-3 object-cover"><div class="text-[13px] font-semibold text-[#1A1A18]">Лезниковский</div><div class="text-[11px] text-[#9B9890] mt-0.5">Красный гранит</div><div class="text-[11px] text-[#9B9890] leading-[1.5] mt-1">Тёплый красный оттенок, очень прочный</div></div>
+                <div class="card p-4"><img src="assets/granit5.jpg" alt="Токовский" class="w-full h-12 rounded-lg mb-3 object-cover"><div class="text-[13px] font-semibold text-[#1A1A18]">Токовский</div><div class="text-[11px] text-[#9B9890] mt-0.5">Коричневый гранит</div><div class="text-[11px] text-[#9B9890] leading-[1.5] mt-1">Уникальный тёплый тон, долговечный</div></div>
               </div>
             </div>
           </div>
-          <div class="grid gap-4 md:grid-cols-3 items-start">
-          <div class="rounded-2xl overflow-hidden" style="background:linear-gradient(160deg,#1a1220,#1e1628);border:1px solid rgba(140,100,200,0.2)">
-            <div class="p-6">
-              <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(140,100,200,0.15)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a070d8" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8"/></svg></div>
-              <h3 class="text-[15px] font-semibold text-white mb-2">3D-моделирование</h3>
-              <p class="text-[12px] text-white/40 leading-[1.6] mb-3">Увидьте памятник до его изготовления. Вносите правки, согласовывайте — без риска.</p>
-              <ul class="space-y-1.5 mb-4" id="feat-3d-list"></ul>
-              <div class="flex items-center justify-between rounded-xl px-3 py-2 mb-3" style="background:rgba(140,100,200,0.1);border:1px solid rgba(140,100,200,0.2)"><span class="text-[11px] text-[#a070d8] font-semibold">Бесплатно</span><span class="text-[10px] text-white/30">при заказе</span></div>
-              <button onclick="toggleFeatureVideo('modeling-photos')" class="flex items-center gap-2 text-[12px] font-semibold text-[#a070d8] hover:text-white transition">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5,3 19,12 5,21"/></svg>Смотреть видео
-                <svg id="modeling-photos-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="transition:transform .2s"><path d="M6 9l6 6 6-6"/></svg>
-              </button>
+
+          <!-- Feature cards: 3D first, then art, relief -->
+          <div class="grid gap-4 md:grid-cols-3" id="featureCardsGrid">
+            <!-- 3D modeling -->
+            <div class="rounded-2xl overflow-hidden" style="background:linear-gradient(160deg,#1a1220,#1e1628);border:1px solid rgba(140,100,200,0.2)">
+              <div class="p-6">
+                <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(140,100,200,0.15)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a070d8" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 12h8M12 8v8"/></svg></div>
+                <h3 class="text-[15px] font-semibold text-white mb-2">3D-моделирование</h3>
+                <p class="text-[12px] text-white/40 leading-[1.6] mb-3">Увидьте памятник до его изготовления. Вносите правки, согласовывайте — без риска.</p>
+                <ul class="space-y-1.5 mb-4" id="feat-3d-list"></ul>
+                <div class="flex items-center justify-between rounded-xl px-3 py-2 mb-3" style="background:rgba(140,100,200,0.1);border:1px solid rgba(140,100,200,0.2)"><span class="text-[11px] text-[#a070d8] font-semibold">Бесплатно</span><span class="text-[10px] text-white/30">при заказе</span></div>
+                <button onclick="toggleAllFeatureVideos()" class="flex items-center gap-2 text-[12px] font-semibold text-[#a070d8] hover:text-white transition">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5,3 19,12 5,21"/></svg>Смотреть видео
+                  <svg id="feat-3d-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="transition:transform .2s"><path d="M6 9l6 6 6-6"/></svg>
+                </button>
+              </div>
+              <div class="toggle-body" id="feat-3d-videos">
+                <div style="padding:0 16px 20px;display:flex;flex-direction:column;gap:14px">
+                  <div>
+                    <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(160,112,216,0.6);margin-bottom:6px">Видео 1</div>
+                    <video preload="metadata" src="assets/3d1.mp4" controls style="width:100%;border-radius:10px;background:#000;display:block"></video>
+                  </div>
+                  <div>
+                    <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(160,112,216,0.6);margin-bottom:6px">Видео 2</div>
+                    <video preload="metadata" src="assets/3d2.mp4" controls style="width:100%;border-radius:10px;background:#000;display:block"></video>
+                  </div>
+                  <div>
+                    <div style="font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.1em;color:rgba(160,112,216,0.6);margin-bottom:6px">Видео 3</div>
+                    <video preload="metadata" src="assets/3d3.mp4" controls style="width:100%;border-radius:10px;background:#000;display:block"></video>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="toggle-body" id="modeling-photos"><div class="px-6 pb-6 flex flex-col gap-3">
-              <video preload="none" src="assets/3d1.mp4" controls class="w-full rounded-xl" style="max-height:260px;background:#000"></video>
-              <video preload="none" src="assets/3d2.mp4" controls class="w-full rounded-xl" style="max-height:260px;background:#000"></video>
-              <video preload="none" src="assets/3d3.mp4" controls class="w-full rounded-xl" style="max-height:260px;background:#000"></video>
-            </div></div>
-          </div>
+            <!-- Art -->
             <div class="rounded-2xl overflow-hidden" style="background:linear-gradient(160deg,#1c1a12,#252318);border:1px solid rgba(154,138,101,0.2)">
               <div class="p-6">
                 <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(154,138,101,0.15)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#C9A96E" stroke-width="1.5" stroke-linecap="round"><path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5L12 3z"/></svg></div>
                 <h3 class="text-[15px] font-semibold text-white mb-2">Художественное оформление</h3>
                 <p class="text-[12px] text-white/40 leading-[1.6] mb-3">Сочетание точности станка ЧПУ и мастерства художника. Каждый элемент — уникален.</p>
                 <ul class="space-y-1.5 mb-4" id="feat-art-list"></ul>
-                <div class="flex items-center justify-between rounded-xl px-3 py-2 mb-3" style="background:rgba(154,138,101,0.1);border:1px solid rgba(154,138,101,0.2)"><span class="text-[11px] text-[#C9A96E] font-semibold">от 2 000 ₽</span><span class="text-[10px] text-white/30">за элемент</span></div>
-                <button onclick="toggleFeatureVideo('art-video')" class="flex items-center gap-2 text-[12px] font-semibold text-[#C9A96E] hover:text-white transition">
+                <div class="flex items-center justify-between rounded-xl px-3 py-2 mb-3" style="background:rgba(154,138,101,0.1);border:1px solid rgba(154,138,101,0.2)"><span class="text-[11px] text-[#C9A96E] font-semibold">уточняйте</span></div>
+                <button onclick="toggleAllFeatureVideos()" class="flex items-center gap-2 text-[12px] font-semibold text-[#C9A96E] hover:text-white transition">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5,3 19,12 5,21"/></svg>Смотреть видео
-                  <svg id="art-video-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="transition:transform .2s"><path d="M6 9l6 6 6-6"/></svg>
+                  <svg id="feat-art-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="transition:transform .2s"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
               </div>
-              <div class="toggle-body" id="art-video"><div class="px-6 pb-6">
-                <video preload="none" src="assets/hud.mp4" controls class="w-full rounded-xl" style="max-height:260px;background:#000"></video>
-              </div></div>
+              <div class="toggle-body" id="art-video">
+                <div style="padding:0 16px 20px">
+                  <video preload="metadata" src="assets/hud.mp4" controls style="width:100%;border-radius:10px;background:#000;display:block"></video>
+                </div>
+              </div>
             </div>
+            <!-- Relief -->
             <div class="rounded-2xl overflow-hidden" style="background:linear-gradient(160deg,#0e1a1c,#131e20);border:1px solid rgba(80,160,180,0.2)">
               <div class="p-6">
                 <div class="w-10 h-10 rounded-xl flex items-center justify-center mb-4" style="background:rgba(80,160,180,0.12)"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5ab0c8" stroke-width="1.5" stroke-linecap="round"><path d="M4 20h16M6 16l4-12h4l4 12"/><path d="M8.5 10h7"/></svg></div>
                 <h3 class="text-[15px] font-semibold text-white mb-2">Рельефная резка гранита</h3>
-                <p class="text-[12px] text-white/40 leading-[1.6] mb-3">Объёмные изображения, барельефы и скульптурные элементы из натурального гранита.</p>
+                <p class="text-[12px] text-white/40 leading-[1.6] mb-3">Объёмные изображения, барельефы и скульптурные элементы из натурального гранита. Обработка гранита на фрезерных станках с ЧПУ. Станки позволяют выполнять 3D-резьбу, полировку, гравировку и фигурную резку.</p>
                 <ul class="space-y-1.5 mb-4" id="feat-relief-list"></ul>
-                <div class="flex items-center justify-between rounded-xl px-3 py-2 mb-3" style="background:rgba(80,160,180,0.1);border:1px solid rgba(80,160,180,0.2)"><span class="text-[11px] text-[#5ab0c8] font-semibold">от 5 000 ₽</span><span class="text-[10px] text-white/30">за элемент</span></div>
-                <button onclick="toggleFeatureVideo('relief-video')" class="flex items-center gap-2 text-[12px] font-semibold text-[#5ab0c8] hover:text-white transition">
+                <div class="flex items-center justify-between rounded-xl px-3 py-2 mb-3" style="background:rgba(80,160,180,0.1);border:1px solid rgba(80,160,180,0.2)"><span class="text-[11px] text-[#5ab0c8] font-semibold">уточняйте</span></div>
+                <button onclick="toggleAllFeatureVideos()" class="flex items-center gap-2 text-[12px] font-semibold text-[#5ab0c8] hover:text-white transition">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="5,3 19,12 5,21"/></svg>Смотреть видео
-                  <svg id="relief-video-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="transition:transform .2s"><path d="M6 9l6 6 6-6"/></svg>
+                  <svg id="feat-relief-chev" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="transition:transform .2s"><path d="M6 9l6 6 6-6"/></svg>
                 </button>
               </div>
-              <div class="toggle-body" id="relief-video"><div class="px-6 pb-6">
-                <video preload="none" src="assets/rezka.mp4" controls class="w-full rounded-xl" style="max-height:260px;background:#000"></video>
-              </div></div>
+              <div class="toggle-body" id="relief-video">
+                <div style="padding:0 16px 20px">
+                  <video preload="metadata" src="assets/rezka.mp4" controls style="width:100%;border-radius:10px;background:#000;display:block"></video>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -389,12 +447,12 @@
               <button onclick="setCurrency('MDL')" class="flex-1 text-center curr-btn rounded-lg lg:rounded-full px-3 py-1.5 lg:py-1 text-[11px] font-semibold text-white/50" data-c="MDL">MDL L</button>
             </div>
           </div>
-          <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
-            <button onclick="filterCat('coffins')" class="cat-btn cat-coffins rounded-2xl p-5 text-left transition-all duration-300 active-cat" data-cat="coffins"><div class="mb-1.5"><img loading="lazy" src="assets/grobico.png" style="width:24px;height:24px"></div><div class="text-[15px] font-semibold text-white">Гробы</div><div class="text-[11px] mt-0.5 text-white/50">Своё производство</div></button>
-            <button onclick="filterCat('wreaths')" class="cat-btn cat-wreaths rounded-2xl p-5 text-left transition-all duration-300" data-cat="wreaths"><div class="mb-1.5"><img loading="lazy" src="assets/venokico.png" style="width:24px;height:24px"></div><div class="text-[15px] font-semibold text-white">Венки</div><div class="text-[11px] mt-0.5 text-white/50">Своё производство</div></button>
-            <button onclick="filterCat('crosses')" class="cat-btn cat-crosses rounded-2xl p-5 text-left transition-all duration-300" data-cat="crosses"><div class="mb-1.5"><img loading="lazy" src="assets/krestico.png" style="width:24px;height:24px"></div><div class="text-[15px] font-semibold text-white">Кресты</div><div class="text-[11px] mt-0.5 text-white/50">Своё производство</div></button>
-            <button onclick="filterCat('monuments')" id="monumentsCatBtn" class="cat-btn cat-monuments rounded-2xl p-5 text-left transition-all duration-300" data-cat="monuments"><div class="mb-1.5"><img loading="lazy" src="assets/pamico.png" style="width:24px;height:24px"></div><div class="text-[15px] font-semibold text-white">Памятники</div><div class="text-[11px] mt-0.5 text-white/50">Натуральный гранит</div></button>
-          </div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8">
+  <button onclick="filterCat('coffins')" class="cat-btn cat-coffins rounded-2xl p-5 text-left transition-all duration-300 active-cat" data-cat="coffins"><div class="mb-1.5"><img loading="lazy" src="assets/grobico.png" style="width:24px;height:24px"></div><div class="text-[15px] font-semibold text-white">Гробы</div><div class="text-[11px] mt-0.5 text-white/50">Своё производство</div></button>
+  <button onclick="filterCat('wreaths')" class="cat-btn cat-wreaths rounded-2xl p-5 text-left transition-all duration-300" data-cat="wreaths"><div class="mb-1.5"><img loading="lazy" src="assets/venokico.png" style="width:24px;height:24px"></div><div class="text-[15px] font-semibold text-white">Венки</div><div class="text-[11px] mt-0.5 text-white/50">Своё производство</div></button>
+  <button onclick="filterCat('crosses')" class="cat-btn cat-crosses rounded-2xl p-5 text-left transition-all duration-300" data-cat="crosses"><div class="mb-1.5"><img loading="lazy" src="assets/krestico.png" style="width:24px;height:24px"></div><div class="text-[15px] font-semibold text-white">Кресты</div><div class="text-[11px] mt-0.5 text-white/50">Своё производство</div></button>
+  <button onclick="filterCat('monuments')" id="monumentsCatBtn" class="cat-btn cat-monuments rounded-2xl p-5 text-left transition-all duration-300" data-cat="monuments"><div class="mb-1.5"><img loading="lazy" src="assets/pamico.png" style="width:24px;height:24px"></div><div class="text-[15px] font-semibold text-white">Памятники</div><div class="text-[11px] mt-0.5 text-white/50">Натуральный гранит</div></button>
+</div>
           <div id="productGrid" class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4 prod-mob-peek"></div>
           <div class="prod-mob-expand-btn mt-4 flex justify-center lg:hidden" id="mobExpandBtn">
             <button onclick="expandMobProducts()" class="flex items-center gap-2 rounded-full border border-white/15 px-6 py-2.5 text-[13px] font-semibold text-white/70 hover:bg-white hover:text-[#1A1A18] transition" id="mobExpandBtnInner">
@@ -412,6 +470,8 @@
             <button onclick="openModal('phone')" class="rounded-full border border-white/10 px-5 py-2 text-[13px] font-semibold text-white/50 hover:bg-white hover:text-[#1A1A18] transition">📞 Позвонить</button>
           </div>
         </section>
+
+        <!-- REPATRIATION -->
         <section id="repatriation" class="px-6 py-8 lg:px-12 lg:py-12 bg-white">
           <div class="rounded-2xl p-5 lg:p-6 relative overflow-hidden" style="background:linear-gradient(160deg,#0f0f0e 0%,#1c1c1a 50%,#131210 100%);border:1px solid rgba(154,138,101,0.22);box-shadow:inset 0 0 100px rgba(154,138,101,0.045),0 8px 40px rgba(0,0,0,0.45)">
             <div class="absolute top-0 right-0 w-80 h-80 rounded-full pointer-events-none opacity-8" style="background:radial-gradient(circle,#9A8A65,transparent);transform:translate(30%,-30%)"></div>
@@ -422,6 +482,7 @@
                 <h2 class="text-[clamp(22px,3.5vw,38px)] font-semibold leading-tight text-white mb-3">Репатриация умершего из любой точки мира</h2>
               </div>
               <div class="grid lg:grid-cols-2 gap-6 items-center">
+                <!-- LEFT -->
                 <div class="order-2 lg:order-1 flex flex-col gap-4">
                   <div class="hidden lg:block">
                     <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 mb-3 text-[11px] font-semibold uppercase tracking-wider" style="background:rgba(154,138,101,0.18);color:#C9A96E;border:1px solid rgba(154,138,101,0.3)">Международная перевозка · Европа и СНГ</div>
@@ -429,26 +490,30 @@
                   </div>
 
                   <p class="text-[13px] leading-[1.7] text-white/50">Организуем <span style="color:#C9A96E;font-weight:600">международную перевозку тела</span> из любой страны. Берём на себя всё — документы, цинковый гроб, транспорт, сопровождение.</p>
+
+                  <!-- Transport types — compact row -->
                   <div class="grid grid-cols-2 gap-2">
-                    <div class="rounded-xl p-3 flex items-center gap-3" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08)">
-                      <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(154,138,101,0.2)">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9A8A65" stroke-width="1.8" stroke-linecap="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
+                    <div class="rounded-xl p-2.5 flex items-center gap-2" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08)">
+                      <div class="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(154,138,101,0.2)">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9A8A65" stroke-width="1.8" stroke-linecap="round"><path d="M21 16v-2l-8-5V3.5a1.5 1.5 0 0 0-3 0V9l-8 5v2l8-2.5V19l-2 1.5V22l3.5-1 3.5 1v-1.5L13 19v-5.5l8 2.5z"/></svg>
                       </div>
-                      <div>
-                        <div class="text-[12px] font-semibold text-white/80">Авиаперевозка</div>
-                        <div class="text-[10px] text-white/35">Любая страна мира</div>
+                      <div class="min-w-0">
+                        <div class="text-[11px] font-semibold text-white/80 leading-tight">Авиаперевозка</div>
+                        <div class="text-[10px] text-white/35 leading-tight mt-0.5">Любая страна мира</div>
                       </div>
                     </div>
-                    <div class="rounded-xl p-3 flex items-center gap-3" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08)">
-                      <div class="w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(154,138,101,0.2)">
-                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9A8A65" stroke-width="1.8" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+                    <div class="rounded-xl p-2.5 flex items-center gap-2" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08)">
+                      <div class="w-6 h-6 rounded-lg flex items-center justify-center flex-shrink-0" style="background:rgba(154,138,101,0.2)">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9A8A65" stroke-width="1.8" stroke-linecap="round"><rect x="1" y="3" width="15" height="13" rx="2"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
                       </div>
-                      <div>
-                        <div class="text-[12px] font-semibold text-white/80">Наземный</div>
-                        <div class="text-[10px] text-white/35">СНГ и Европа</div>
+                      <div class="min-w-0">
+                        <div class="text-[11px] font-semibold text-white/80 leading-tight">Наземный</div>
+                        <div class="text-[10px] text-white/35 leading-tight mt-0.5">СНГ и Европа</div>
                       </div>
                     </div>
                   </div>
+
+                  <!-- Steps — compact inline -->
                   <div class="rounded-xl p-3" style="background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.07)">
                     <div class="text-[10px] font-semibold uppercase tracking-widest text-white/25 mb-2">Как мы работаем</div>
                     <div class="grid grid-cols-2 gap-x-4 gap-y-1.5">
@@ -477,6 +542,8 @@
                 </div>
                   <p class="text-[10px] text-white/20 hidden lg:block -mt-1">Стоимость — по запросу. Оформление всех документов включено.</p>
                 </div>
+
+                <!-- RIGHT: vertical photos, compact aspect ratio -->
                 <div class="order-1 lg:order-2">
                   <div class="flex flex-col gap-2">
                     <div class="relative rounded-xl overflow-hidden" style="box-shadow:0 10px 30px rgba(0,0,0,0.4)">
@@ -519,6 +586,8 @@
         <div class="hidden lg:flex items-center justify-center py-2 bg-white">
           <div style="height:1px;width:240px;background:linear-gradient(90deg,transparent,rgba(154,138,101,0.6),transparent)"></div>
         </div>
+
+        <!-- ABOUT -->
         <section id="about" class="px-6 py-16 lg:px-12 lg:py-20 bg-white">
           <div class="grid gap-10 lg:grid-cols-2 items-center">
             <div class="relative">
@@ -555,6 +624,8 @@
             </div>
           </div>
         </section>
+
+        <!-- REVIEWS -->
         <section id="reviews" style="background:linear-gradient(160deg,#090908 0%,#111110 55%,#0c0b09 100%);box-shadow:inset 0 0 200px rgba(154,138,101,0.04)" class="text-[#D4D2CC] px-6 py-16 lg:px-12 lg:py-20">
           <div class="mb-10">
             <p class="text-[11px] uppercase tracking-[.1em] text-white/25 mb-4">Что говорят клиенты</p>
@@ -562,6 +633,8 @@
           </div>
           <div id="reviewsGrid" class="grid gap-3 md:grid-cols-2 lg:grid-cols-3"></div>
         </section>
+
+        <!-- TELEGRAM -->
         <section class="px-6 pt-16 pb-8 lg:px-12 lg:pt-20 lg:pb-10 bg-[#F6F5F1]">
           <div class="max-w-4xl mx-auto text-center mb-10">
             <div class="w-16 h-16 mx-auto bg-[#229ED9] rounded-full flex items-center justify-center mb-4 text-white shadow-lg">
@@ -577,11 +650,12 @@
           </div>
           <div class="max-w-5xl mx-auto">
             <div class="rounded-2xl overflow-hidden mb-0">
-              <img src="assets/tgk1.png" alt="" class="w-full aspect-[16/9] object-cover">
+              <img src="assets/tgk1.jpg" alt="" class="w-full aspect-[16/9] object-cover">
             </div>
           </div>
         </section>
 
+        <!-- CTA -->
         <section class="px-6 pt-6 pb-10 lg:px-12 lg:pt-8 lg:pb-14">
           <div class="rounded-2xl overflow-hidden relative" style="background:linear-gradient(160deg,#050504 0%,#0e0d0c 55%,#060504 100%);box-shadow:inset 0 0 200px rgba(154,138,101,0.07)">
             <div class="absolute top-0 left-1/4 w-96 h-48 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(154,138,101,0.18),transparent 70%);transform:translateY(-40%)"></div>
@@ -589,12 +663,14 @@
             <div class="absolute bottom-0 right-0 w-64 h-64 rounded-full pointer-events-none" style="background:radial-gradient(ellipse,rgba(154,138,101,0.08),transparent 70%);transform:translate(30%,30%)"></div>
             <div class="relative z-10 p-8 lg:p-12">
               <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <!-- Left -->
                 <div>
                   <div class="inline-flex items-center gap-2 rounded-full px-3 py-1 mb-5 text-[10px] font-bold uppercase tracking-widest" style="background:rgba(154,138,101,0.15);color:#C9A96E;border:1px solid rgba(154,138,101,0.3)">
                     <span class="w-1.5 h-1.5 rounded-full bg-[#C9A96E] animate-pulse"></span>Работаем 24/7
                   </div>
                   <h2 class="text-[clamp(28px,4vw,40px)] font-bold text-white leading-tight mb-4">Позвоните нам</h2>
                   <p class="text-[14px] text-white/40 leading-[1.7] mb-6">Работаем без выходных и праздников. Выезжаем в течение часа по всему Приднестровью и Молдове.</p>
+                  <!-- Numbers -->
                   <div class="space-y-4">
                     <div>
                       <div class="text-[10px] font-semibold uppercase tracking-widest mb-2" style="color:rgba(154,138,101,0.6)">Приднестровье</div>
@@ -607,6 +683,7 @@
                     </div>
                   </div>
                 </div>
+<!-- Right: messengers -->
                 <div class="flex flex-col gap-3">
                   <div class="text-[10px] font-semibold uppercase tracking-widest mb-1" style="color:rgba(255,255,255,0.2)">Или напишите нам</div>
                   <a href="https://wa.me/37377954044" target="_blank" class="flex items-center gap-4 rounded-2xl px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-[#25D366]/50" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(12px)">
@@ -623,18 +700,19 @@
                     <div><div class="text-[14px] font-semibold text-white">Telegram</div><div class="text-[11px] text-white/35">Канал и личные сообщения</div></div>
                     <svg class="ml-auto" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
                   </a>
-                  <a href="viber://chat?number=%2B37377954044" class="flex items-center gap-4 rounded-2xl px-5 py-4 transition-all hover:-translate-y-0.5 hover:border-[#7360F2]/50" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(12px)">
+                  <div class="flex items-center gap-4 rounded-2xl px-5 py-4" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.08);backdrop-filter:blur(12px)">
                     <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0" style="background:#7360F2">
                       <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M11.4 0C5.116 0 0 5.116 0 11.4c0 2.928 1.116 5.604 2.928 7.632L1.8 22.8l3.996-1.08A11.34 11.34 0 0 0 11.4 22.8C17.684 22.8 22.8 17.684 22.8 11.4S17.684 0 11.4 0zm5.604 15.732c-.252.708-.748 1.308-1.392 1.62-.356.172-.764.268-1.18.268-.48 0-1.212-.18-2.772-.804-1.308-.516-2.46-1.272-3.42-2.22-.96-.96-1.716-2.112-2.22-3.42-.624-1.572-.804-2.292-.804-2.772 0-.416.096-.824.268-1.18.312-.644.912-1.14 1.62-1.392.18-.06.36-.096.54-.096.144 0 .288.024.42.072.312.108.576.324.756.612l1.128 1.692c.18.264.276.576.276.888 0 .384-.12.756-.348 1.056l-.42.552c.384.768.948 1.44 1.656 1.98l.516-.432c.3-.252.672-.384 1.056-.384.312 0 .624.096.888.276l1.692 1.128c.288.192.504.456.612.768.048.132.072.276.072.42 0 .18-.036.36-.096.54z"/></svg>
                     </div>
-                    <div><div class="text-[14px] font-semibold text-white">Viber</div><div class="text-[11px] text-white/35">Звонок или сообщение</div></div>
-                    <svg class="ml-auto" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.25)" stroke-width="2" stroke-linecap="round"><path d="M9 18l6-6-6-6"/></svg>
-                  </a>
+                    <div><div class="text-[14px] font-semibold text-white">Viber</div><div class="text-[13px] font-semibold text-white/70 mt-0.5">+373 778 61 889</div></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
+
+        <!-- CONTACTS -->
 <section id="contacts" class="px-6 py-16 lg:px-12 lg:py-20 bg-[#EEEDEA]">
           <div class="max-w-4xl mx-auto">
             <h2 class="text-[clamp(28px,4vw,44px)] font-semibold leading-tight text-[#1A1A18] mb-8">Контакты</h2>
@@ -671,7 +749,7 @@
                   <div class="flex flex-wrap gap-1.5">
                     <a href="https://wa.me/37377954044" target="_blank" class="rounded-full bg-[#1A1A18] text-white px-3.5 py-1.5 text-[11px] font-semibold">WhatsApp</a>
                     <a href="https://t.me/guchevgranit" target="_blank" class="rounded-full bg-[#1A1A18] text-white px-3.5 py-1.5 text-[11px] font-semibold">Telegram</a>
-                    <a href="viber://chat?number=%2B37377954044" class="rounded-full bg-[#1A1A18] text-white px-3.5 py-1.5 text-[11px] font-semibold">Viber</a>
+                    <span class="rounded-full bg-[#7360F2] text-white px-3.5 py-1.5 text-[11px] font-semibold">Viber: +373 778 61 889</span>
                   </div>
                 </div>
               </div>
@@ -682,10 +760,12 @@
           </div>
         </section>
         </main>
+
+        <!-- FOOTER -->
         <footer style="background:linear-gradient(160deg,#090908 0%,#111110 60%,#0d0c0a 100%)" class="text-[#D4D2CC] px-6 py-12 lg:px-12">
           <div class="grid gap-8 lg:grid-cols-4">
             <div class="space-y-3">
-              <span class="text-[17px] font-light tracking-wide text-white">Гучев Ритуал</span>
+              <span class="text-[17px] font-light tracking-wide text-white">ИП Гучев А.Н.</span>
               <p class="text-[13px] text-white/35 leading-[1.6]">Крупнейшая ритуальная компания Рыбницы, Приднестровья и Молдовы. Собственное производство. Более 20 лет опыта.</p>
               <div class="space-y-1">
                 <div class="text-[11px] text-white/30 uppercase tracking-wider">Приднестровье</div>
@@ -706,7 +786,7 @@
               <div class="text-[12px] font-semibold text-white/40">Мессенджеры</div>
               <a href="https://wa.me/37377954044" target="_blank" class="block text-[13px] text-white/30 hover:text-white/60 transition">WhatsApp</a>
               <a href="https://t.me/Guchev_Ritual" target="_blank" class="block text-[13px] text-white/30 hover:text-white/60 transition">Telegram</a>
-              <a href="viber://chat?number=%2B37377954044" class="block text-[13px] text-white/30 hover:text-white/60 transition">Viber</a>
+              <span class="block text-[13px] text-white/30">Viber: +373 778 61 889</span>
             </div>
             <div class="space-y-2">
               <div class="text-[12px] font-semibold text-white/40">Соцсети</div>
@@ -716,32 +796,39 @@
             </div>
           </div>
           <div class="mt-10 pt-6 pb-24 sm:pb-0 border-t border-white/6 flex flex-col sm:flex-row justify-between items-center gap-2">
-            <div class="text-[11px] text-white/20">© 2026 Гучев Ритуал. Все права защищены.</div>
+            <div class="text-[11px] text-white/20">© 2026 ИП Гучев А.Н.. Все права защищены.</div>
             <div class="text-[11px] text-white/20">Рыбница · Приднестровье · Молдова · 20+ лет · Гарантия по договору</div>
           </div>
         </footer>
         </div>
     </div>
+
+    <!-- MODAL -->
     <div id="modalOverlay" class="fixed inset-0 z-[70] hidden modal-bg items-center justify-center p-4" onclick="if(event.target===this)closeModal()">
-      <div id="modalBox" class="bg-white rounded-2xl p-6 w-full max-w-lg max-h-[85vh] overflow-y-auto fade-in relative" onclick="event.stopPropagation()">
-        <div class="flex items-center justify-between mb-5">
-          <h3 id="modalTitle" class="text-base font-semibold text-[#1A1A18]"></h3>
-          <button onclick="closeModal()" class="w-8 h-8 flex items-center justify-center rounded-lg bg-black/4 text-[#6B6960] hover:bg-black/8 transition"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
-        </div>
+      <div id="modalBox" class="rounded-2xl p-4 w-full max-w-lg max-h-[85vh] overflow-y-auto fade-in relative" onclick="event.stopPropagation()" style="background:#111009">
+        <h3 id="modalTitle" class="hidden"></h3>
         <div id="modalBody"></div>
       </div>
     </div>
+
+    <!-- SUB-MODAL -->
     <div id="globalSubModal" class="sub-modal-ovl" style="display:none" onclick="closeSubModal()">
       <div class="sub-modal-box" onclick="event.stopPropagation()">
         <button onclick="closeSubModal()" class="absolute top-4 right-4 w-8 h-8 flex items-center justify-center rounded-lg bg-black/4 text-[#6B6960]"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg></button>
         <div id="globalSubModalContent"></div>
       </div>
     </div>
+
+    <!-- LIGHTBOX -->
     <div id="lightbox" class="lightbox" onclick="closeLightbox()"></div>
+
+    <!-- MOBILE BAR -->
     <div id="mobileBottomBar" class="lg:hidden mob-bar hidden-bar">
       <button onclick="openModal('phone')" class="flex-1 rounded-2xl text-white py-3 text-center text-[13px] font-semibold" style="background:rgba(26,26,24,0.85);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.12)">Позвонить</button>
       <button onclick="openModal('messenger')" class="flex-1 rounded-2xl py-3 text-center text-[13px] font-semibold" style="background:rgba(246,245,241,0.85);backdrop-filter:blur(20px);border:1px solid rgba(0,0,0,0.1);color:#1A1A18">Написать</button>
     </div>
+
+    <!-- JavaScript -->
     <script src="js/data.js"></script>
     <script src="js/utils.js"></script>
     <script src="js/components.js"></script>
